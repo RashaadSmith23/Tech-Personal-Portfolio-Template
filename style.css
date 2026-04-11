@@ -1,0 +1,879 @@
+/* *****  Import Fonts Section Starts ***** */
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Dancing+Script:wght@400..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* *****  Import Fonts Section Ends ***** */
+
+/* ***** General Styles Section Starts ***** */
+
+:root {
+  /* Color Variables */
+  --Primary-Deep-Black: #000000;
+  --Primary-Deep-Navy: #1E2A38;
+  --Secondary-Cool-Gray: #A3A9B4;
+  --Accent-Soft-Teal: #56C2B4;
+  --Scrollbar-Color: #206960;
+  --Background-Off-White: #F8F9FA;
+  --Accent-Deep-Burgundy: #7D3C3C;
+
+  /* Fonts Variables */
+  --Primary-Font: "Lato", sans-serif;
+  --Secondary-Font: "Noto Sans", sans-serif;
+  --Tertiary-Font: "Dancing Script", sans-serif;
+  --Heading-Font: "Archivo Black", sans-serif;
+}
+
+ul, li, a {
+  list-style: none;
+  text-decoration: none;
+  color: inherit;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* ***** General Styles Section Ends ***** */
+
+/* ***** Scrollbar Section Starts ***** */
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+/* Can remove scrollbar display to make it visible again
+*::-webkit-scrollbar {
+  display: none;
+  width: 12px;
+  transition: background .3s ease;
+}
+
+*::-webkit-scrollbar-track {
+  background: #145ec5;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #0b234b;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--Accent-Soft-Teal);
+}
+*/
+
+/* ***** Scrollbar Section Ends ***** */
+
+/* ***** Progress Bar Section Starts ***** */
+
+/* Style for the progress bar */
+.progress-container {
+  width: 100%;
+  height: 5px;
+  background: #ddd;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.progress-bar {
+  height: 5px;
+  width: 0%;
+  background: linear-gradient(90deg, #1e8d8e, #0c254c);
+  transition: width 0.1s ease-in-out;
+}
+
+/* ***** Progress Bar Section Ends ***** */
+
+.nav {
+  height: 80px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  background: linear-gradient(90deg, #276f78, #0b234b);
+}
+
+.nav .logo {
+  margin-right: auto;
+  margin-left: 20px;
+  color: var(--Background-Off-White);
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  color: var(--Background-Off-White);
+  margin-right: 30px;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.nav-links::after {
+  content: "";
+  position: absolute;
+  height: 3px;
+  width: 3px;
+  background-color: var(--Accent-Soft-Teal);
+  bottom: 0;
+  width: 0;
+  transition: width .3s ease;
+}
+
+.nav-links:hover::after {
+  width: 50%;
+}
+
+.menu-mobile {
+  display: none;
+}
+
+/* ***** Hero Section Starts ***** */
+
+section {
+  background-image: linear-gradient(to bottom, #1e2a3886, #1e2a3848), url(assets/background-image.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: scroll;
+  height: 600px;
+}
+
+section .hero-section {
+  display: flex;
+  width: 90%;
+  height: 80%;
+  justify-content: center;
+  align-items: flex-end;
+  flex-direction: column;
+}
+
+section .hero-section h1 {
+  font-size: 2.6rem;
+  color: var(--Background-Off-White);
+  padding: 20px 0;
+}
+
+section .hero-section p {
+  text-indent: 1px;
+  color: var(--Background-Off-White);
+  margin: 0.2rem;
+}
+
+.btn-container button {
+  background: linear-gradient(90deg, #1e8d8e, #0c254c);
+  outline: none;
+  border: none;
+  color: var(--Background-Off-White);
+  font-size: 1rem;
+  padding: 1rem 2rem;
+  margin-top: 2rem;
+  cursor: pointer;
+  background-size: 200% 300%;
+  transition: background-position .3s ease;
+}
+
+.btn-container button:hover {
+  /*background: linear-gradient(90deg, #0c254c, #1e8d8e);*/
+  background-position: right;
+}
+
+/* ***** Hero Section Ends ***** */
+
+/* ***** Container Styles Starts ***** */
+
+.container {
+  width: 80%;
+  text-align: center;
+  margin: auto;
+  margin-top: 60px;
+}
+
+.container h1 {
+  font-family: var(--Heading-Font);
+  text-transform: uppercase;
+  margin-top: 30px;
+}
+
+.container p {
+  margin-top: 20px;
+}
+
+/* ***** Container Styles Ends ***** */
+
+/* ***** Service Section Starts ***** */
+
+.service-container {
+  display: grid;
+  width: 75%;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 3rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.service-card-container {
+  display: grid;
+  grid-template-columns: 500px 500px;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 30px;
+  padding-bottom: 50px;
+}
+
+.service-card {
+  border: 1px solid #000;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: default;
+  position: relative;
+}
+
+.service-card .progress-bar-1,
+.service-card .progress-bar-2,
+.service-card .progress-bar-3,
+.service-card .progress-bar-4 {
+  display: none;
+}
+
+/* Progress Bar */
+.service-card .progress-bar-1 {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 0%;  /* Start at 0% */
+  height: 8%;
+  background: linear-gradient(90deg, #1e8d8e, #0c254c);
+  transition: width 0.5s ease-in-out;
+}
+
+.service-card:hover .progress-bar-1 {
+  width: 100%;  /* Fills up completely */
+}
+
+.service-card .progress-bar-2 {
+  display: block;
+  position: absolute;
+  bottom: -20px;
+  right: 0;
+  width: 0%;  /* Start at 0% */
+  height: 8%;
+  background: linear-gradient(90deg, #1e8d8e, #0c254c);
+  transition: width 0.5s ease-in-out;
+}
+
+/* Hover Effect */
+.service-card:hover .progress-bar-2 {
+  width: 100%;  /* Fills up completely */
+}
+
+.service-card i, .service-card div {
+  font-size: 3.5rem;
+  background: linear-gradient(260deg, #1e8d8e, #0c254c);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.service-card div {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.service-card div, .service-card p {
+  cursor: default;
+}
+
+/* ***** Service Section Ends ***** */
+
+/* ***** Portfolio Section Starts ***** */
+
+.portfolio-tab {
+  display: flex;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  place-content: center;
+  gap: 30px;
+}
+
+.portfolio-tab div {
+  border: 1px solid gray;
+  padding: 1rem;
+  cursor: pointer;
+  transition: .2s ease;
+}
+
+.portfolio-tab .filter-tab.active {
+  background-color: #206469;
+  color: var(--Background-Off-White);
+}
+
+.portfolio-tab div:hover {
+  background-color: #206469;
+  color: var(--Background-Off-White);
+}
+
+.gallery {
+  width: 77%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.gallery .item {
+  margin: 3px;
+  width: calc(33.33% - 8px);
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+}
+
+.item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: 0.3s;
+}
+
+.gallery .item:hover img {
+  transform: scale(1.15);
+}
+
+.item .overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #2064697a;
+  top: 0;
+  display: grid;
+  place-content: center;
+  opacity: 0;
+  transition: opacity .1s ease-in;
+}
+
+.gallery .item:hover .overlay {
+  opacity: 1;
+}
+
+.gallery .item:hover .overlay a {
+  background: transparent;
+  color: var(--Background-Off-White);
+  border: 1px solid #fff;
+  padding: 10px 15px;
+  transition: background-color .3s ease-in-out;
+}
+
+.gallery .item:hover .overlay a:hover {
+  background: #2064697a;
+}
+
+.gallery .item:hover .overlay a .ri-eye-line {
+  padding-left: 10px;
+}
+
+/* ***** Portfolio Section Ends ***** */
+
+/* ***** Team Members Section Starts ***** */
+
+.team-container {
+  display: grid;
+  grid-template-columns: 300px 300px 300px;
+  place-content: center;
+  margin-top: 30px;
+  gap: 30px;
+}
+
+.team-card {
+  padding: 20px;
+  text-align: center;
+  background: white;
+  border: 1px solid #000;
+}
+
+.team-card img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.member-name {
+  font-family: var(--Tertiary-Font);
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.member-skill {
+  font-family: var(--Secondary-Font);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  background: linear-gradient(260deg, #1e8d8e, #0c254c);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.socials {
+  margin-top: 20px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.socials svg {
+  width: 40px;
+  padding: .5rem;
+  border-radius: 50%;
+  transition: .9s ease;
+  cursor: pointer;
+}
+
+.socials svg:nth-child(1n):hover {
+  background-color: rgb(0, 174, 255);
+  color: #fff;
+  box-shadow: -0px -0px 2px 7px hsl(209, 100%, 89%);
+}
+
+.socials svg:nth-child(2n):hover {
+  background-color: rgb(255, 38, 165);
+  color: #fff;
+  box-shadow: -0px -0px 2px 7px hsl(318, 100%, 89%);
+}
+
+.socials svg:nth-child(3n):hover {
+  background-color: rgb(255, 38, 38);
+  color: #fff;
+  box-shadow: -0px -0px 2px 7px hsla(0, 100%, 89%);
+}
+
+.socials svg:nth-child(4n):hover {
+  background-color: rgb(43, 43, 43);
+  color: #fff;
+  box-shadow: -0px -0px 2px 7px rgb(109, 109, 109);
+}
+
+/* ***** Team Members Section Ends ***** */
+
+/* ***** Testomonials Section Starts ***** */
+
+.testimonials-container {
+  width: 79%;
+  margin: auto;
+}
+
+.card-wrapper {
+  width: 77%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  gap: 20px;
+}
+
+.card-item {
+  border: 1px solid gray;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.card-item svg {
+  width: 50px;
+}
+
+.card-item .ri-star-fill {
+  color: orange;
+}
+
+/* ***** Testomonials Section Ends ***** */
+
+/* ***** Contact Form Section Starts ***** */
+
+.contact-form-container {
+  width: 100%;
+  margin-top: 30px;
+}
+
+#contactForm {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#submitBtn {
+  width: 30%;
+  background: linear-gradient(90deg, #1e8d8e, #0c254c);
+  color: #fff;
+  padding: 0.9rem 2rem;
+  border: none;
+  outline: none;
+  margin-top: -10px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background-color .5s ease;
+}
+
+#submitBtn:hover {
+  background-color: #00000088;
+}
+
+#contactForm label {
+  color: gray;
+}
+
+#contactForm input, textarea {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  outline: none;
+  border: 1px solid transparent;
+  background-color: hsl(180, 12%, 89%);
+  padding-left: .5rem;
+}
+
+#contactForm input:focus {
+  border: 1px solid #1e8d8e;
+}
+
+#contactForm textarea {
+  resize: none;
+}
+
+/* Loader (Hidden by Default) */
+.loader {
+  display: none;
+  width: 16px;
+  height: 16px;
+  border: 3px solid white;
+  border-top: 3px solid transparent;
+  border-radius: 50%;
+  animation: spin 0.5s linear infinite;
+  margin-left: 10px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Success & Error Messages */
+#responseMessage {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+/* ***** Contact Form Section Ends ***** */
+
+/* ***** Footer Section Starts ***** */
+
+footer {
+  background-image: linear-gradient(to bottom, #1e2a3886, #1e2a3848), url(assets/background-image.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  margin-top: 30px;
+  padding: 4rem 2rem 1rem 2rem;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 70px;
+}
+
+.footer-container .about {
+  padding: 10px;
+  color: #fff;
+}
+
+.footer-container .about .logo {
+  margin-right: auto;
+  margin-left: 0;
+  margin-bottom: 20px;
+  color: var(--Background-Off-White);
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.footer-container .about .socials {
+  width: max-content;
+  display: flex;
+  gap: 20px;
+  margin-left: -10px;
+}
+
+.footer-container .about .socials i {
+  padding: 5px;
+  margin: 0;
+  outline: none;
+  border: none;
+  font-size: 1.5rem;
+}
+
+.footer-container .services,
+.footer-container .footer-menu {
+  color: #fff;
+}
+
+.footer-container .services ul,
+.footer-container .footer-menu ul {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.footer-container .services ul li,
+.footer-container .footer-menu ul li {
+  cursor: pointer;
+  transition: color .10s ease;
+  width: max-content;
+}
+
+.footer-container .services ul li:hover,
+.footer-container .footer-menu ul li:hover {
+  color: #56C2B4;
+}
+
+/* ***** Footer Section Ends ***** */
+
+/* ***** Copyright Section Starts ***** */
+
+.copyright {
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  padding: 20px 0 0 0;
+}
+
+/* ***** Copyright Section Ends ***** */
+
+/* ***** Responsive Designs Starts ***** */
+
+@media (min-width: 320px) and (max-width: 425px) {
+  hr,
+  .nav,
+  .nav .nav-links,
+  .progress-container {
+    display: none;
+  }
+
+  .menu-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(90deg, #276f78, #0b234b);
+    padding: 0 10px;
+    height: 70px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .menu-mobile .logo {
+    margin-right: auto;
+    margin-left: 20px;
+    color: var(--Background-Off-White);
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  .menu-mobile .nav-menu {
+    padding-top: 54px;
+    background-color: #1e8c8e;
+    width: 60%;
+    height: 100%;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    z-index: 100;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .menu-mobile .nav-menu.active {
+    transform: translateX(0);
+  }
+
+  .nav-menu .nav-links {
+    height: 15%;
+    padding-left: 30px;
+  }
+
+  .menu-mobile .ri-close-large-line {
+    color: #fff;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 2rem;
+    transition: transform 0.3s ease;
+  }
+
+  .menu-mobile .ri-close-large-line:hover {
+    transform: rotate(90deg);  
+  }
+
+  .item .overlay {
+    display: none;
+  }
+
+  #submitBtn {
+    color: #fff;
+    height: 53px;
+    width: 55%;
+    margin-left: 0px;
+    padding-left: 37px;
+    margin-right: 0;
+  }
+
+  .menu-mobile .menu-btn {
+    width: 32px;
+  }
+
+  section .hero-section h1 {
+    text-align: center;
+    font-size: 2rem;
+  }
+
+  section .hero-section p {
+    text-align: center;
+  }
+
+  section .hero-section {
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .service-card {
+    position: static;
+  }
+
+  .service-container {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-tab {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .gallery .item {
+    position: static;
+    width: 100%;
+  }
+
+  .team-container {
+    width: 75%;
+    grid-template-columns: 1fr;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #contactForm {
+    width: 82%;
+    margin-top: 2rem;
+  }
+
+  .card-wrapper {
+    grid-template-columns: 300px;
+    justify-content: center;
+  }
+
+  footer {
+    padding-bottom: 0;
+  }
+
+  .footer-menu,
+  .services {
+    width: 100%;
+  }
+
+  .footer-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    gap: 26px;
+  }
+
+  .footer-container .about .logo {
+    margin: auto;
+    padding: 8px;  
+  }
+
+  .services,
+  .footer-container .services ul,
+  .footer-container .about,
+  .footer-menu ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-menu,
+  .services {
+    text-align: center;
+  }
+
+  .footer-container .about .socials {
+    width: 100%;
+  }
+
+  .copyright {
+    margin-top: 20px;
+  }
+
+  .copyright div {
+    font-size: .8rem;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1024px) {
+  .card-wrapper {
+    width: 92%;
+  }
+}
+
+@media (max-width: 1440px) {
+  footer {
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    width: 100%;  
+  }
+}
+
+
+/* ***** Responsive Designs Ends ***** */
