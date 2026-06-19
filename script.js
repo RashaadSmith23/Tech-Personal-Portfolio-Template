@@ -1,109 +1,86 @@
-// Select all navigation links
-const navLinks = document.querySelectorAll('.nav-link');
+ // Initialize AOS
+        AOS.init({ duration: 800, once: true, offset: 120 });
 
-// Function to highlight the active link
-function setActiveLink() {
-    let scrollPosition = window.scrollY;
-    navLinks.forEach(link => {
-        let section = document.querySelector(link.getAttribute('href'));
-        if (section.offsetTop <= scrollPosition + 100 && section.offsetTop + section.offsetHeight > scrollPosition + 100) {
-            navLinks.forEach(nav => nav.classList.remove('active'));
-            link.classList.add('active');
-        }
-    });
-}
-
-// Event listener for scrolling
-window.addEventListener('scroll', setActiveLink);
-
-// Smooth scroll effect when clicking links
-navLinks.forEach(link => {
-    link.addEventListener('click', function(event) {
-        event.preventDefault();
-        let targetSection = document.querySelector(this.getAttribute('href'));
-        window.scrollTo({
-            top: targetSection.offsetTop - 50, 
-            behavior: 'smooth'
-        });
-    });
-});
-
-// Call function on page load to highlight the correct section
-setActiveLink();
-
-window.onscroll = function() {
-    updateProgressBar();
-};
-
-function updateProgressBar() {
-    let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-    let scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    let progress = (scrollTop / scrollHeight) * 100;
-    
-    document.getElementById("progressBar").style.width = progress + "%";
-}
-
-// Contact Form Section Code //
-// Formspree Code //
-document.getElementById("contactForm").addEventListener("submit", async function(event) {
-    event.preventDefault(); // Prevent page reload
-
-    let submitBtn = document.getElementById("submitBtn");
-    let loader = submitBtn.querySelector(".loader");
-    let responseMessage = document.getElementById("responseMessage");
-
-    // Show loading icon
-    loader.style.display = "inline-block";
-    submitBtn.disabled = true;
-
-    // Get form values
-    let formData = new FormData(this);
-
-    try {
-        // Send form data to Formspree (Replace with your own backend URL if needed)
-        let response = await fetch("https://formspree.io/YOUR_ID_NUMBER", {
-            method: "POST",
-            body: formData,
-            headers: { "Accept": "application/json" }
+        // Particles.js configuration
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: '#2dd4bf' },
+                shape: { type: 'circle' },
+                opacity: { value: 0.5, random: false },
+                size: { value: 3, random: true },
+                line_linked: { enable: true, distance: 150, color: '#2dd4bf', opacity: 0.2, width: 1 },
+                move: { enable: true, speed: 2, direction: 'none', random: false, straight: false, out_mode: 'out' }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' } },
+                modes: { repulse: { distance: 100, duration: 0.4 } }
+            },
+            retina_detect: true
         });
 
-        if (response.ok) {
-            responseMessage.style.color = "green";
-            responseMessage.textContent = "Message sent successfully!";
-            this.reset(); // Clear form after success
-        } else {
-            throw new Error("Something went wrong. Try again.");
-        }
-    } catch (error) {
-        responseMessage.style.color = "red";
-        responseMessage.textContent = error.message;
-    }
+        // Progress bar on scroll
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("progressBar").style.width = scrolled + "%";
 
-    // Hide loader and enable button again
-    loader.style.display = "none";
-    submitBtn.disabled = false;
-});
+            // Navbar background change
+            if (window.scrollY > 50) {
+                document.getElementById('desktopNav')?.classList.add('scrolled');
+            } else {
+                document.getElementById('desktopNav')?.classList.remove('scrolled');
+            }
+        };
 
-// Navbar For You Mobile //
-// JavaScript Code //
-const menuToggle = document.getElementById("menuToggle");
-const navMenu = document.getElementById("navMenu");
-const closeBtn = document.getElementById("closeBtn");
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeMenu = document.getElementById('closeMenu');
+        menuToggle?.addEventListener('click', () => mobileMenu.classList.add('active'));
+        closeMenu?.addEventListener('click', () => mobileMenu.classList.remove('active'));
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.remove('active'));
+        });
 
-menuToggle.addEventListener("click", () => {
-    navMenu.classList.add("active");
-});
+        // Portfolio filter
+        const filterTabs = document.querySelectorAll('.filter-tab');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        filterTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                filterTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                const filter = tab.getAttribute('data-filter');
+                galleryItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
 
-closeBtn.addEventListener("click", () => {
-    navMenu.classList.remove("active");
-});
+        // Contact form submission with loader
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            const loader = document.getElementById('loader');
+            const msg = document.getElementById('responseMessage');
+            btn.disabled = true;
+            loader.style.display = 'inline-block';
+            msg.textContent = '';
+            // Simulate sending
+            setTimeout(() => {
+                loader.style.display = 'none';
+                btn.disabled = false;
+                msg.style.color = '#2dd4bf';
+                msg.textContent = 'Message sent successfully!';
+                this.reset();
+            }, 1500);
+        });
 
-document.addEventListener("click", (event) => {
-    if (!navMenu.contains(event.target) && !menuToggle.contains(event.target)) {
-        navMenu.classList.remove("active");
-    }
-});
-
-// Website Year Copyright //
-// JavaScript Code
-document.getElementById("year").textContent = new Date().getFullYear();
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
